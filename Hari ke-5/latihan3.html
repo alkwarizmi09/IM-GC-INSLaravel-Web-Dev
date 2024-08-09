@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Conditional HTML</title>
+  </head>
+  <body>
+    <h1>Berlatih Kondisional</h1>
+    <h3>Masukkan nama dan peranmu!</h3>
+    <form action="#" id="formConditional">
+      <input type="text" id="name" placeholder="Isi nama di sini" />
+      <input type="text" id="role" placeholder="Isi peran di sini" />
+      <input type="submit" value="Mulai Permainan" />
+    </form>
+    <h3>Jawaban dari console game:</h3>
+    <div id="jawaban"></div>
+    <script>
+      var form = document.getElementById("formConditional");
+      var jawaban = document.getElementById("jawaban");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let nama = document.getElementById("name");
+        let role = document.getElementById("role");
+        if (nama.value.toLowerCase() != "" || role.value.toLowerCase() != "") {
+          if (
+            nama.value.toLowerCase() != "" &&
+            role.value.toLowerCase() == ""
+          ) {
+            jawaban.innerHTML = `Halo ${nama.value.toLowerCase()}, Pilih peranmu untuk memulai game!`;
+          } else {
+            if (role.value.toLowerCase() == "penyihir") {
+              jawaban.innerHTML = `<p>Selamat datang di dunia werewolf,${nama.value.toLowerCase()}</p><p>halo penyihir ${nama.value.toLowerCase()},kamu dapat melihat siapa yang menjadi werewolf</p>`;
+            } else if (role.value.toLowerCase() == "werewolf") {
+              jawaban.innerHTML = `<p>Selamat datang di dunia werewolf,${nama.value.toLowerCase()}</p><p>halo werewolf ${nama.value.toLowerCase()},kamu dapat memilih siapa yang akaan kamu makan malam ini</p>`;
+            } else if (role.value.toLowerCase() == "rakjel") {
+              jawaban.innerHTML = `<p>Selamat datang di dunia werewolf,${nama.value.toLowerCase()}</p><p>halo Rakjel ${nama.value.toLowerCase()},kamu adalah rakyat biasa</p>`;
+            } else {
+              jawaban.innerHTML = `<p>Role anda tidak tersedia`;
+            }
+          }
+        } else {
+          jawaban.innerHTML = "Harap isi semua inputan";
+        }
+      });
+    </script>
+  </body>
+</html>

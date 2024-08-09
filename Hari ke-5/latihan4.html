@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Looping</title>
+  </head>
+  <body>
+    <h1>Berlatih Looping</h1>
+    <h3>Contoh Hasil Looping</h3>
+    <div id="example"></div>
+    <h3>Soal No. 1</h3>
+    <div id="jawaban1"></div>
+    <script>
+      var jawaban1 = "LOOPING PERTAMA";
+      // Code kamu di sini, lakukan looping dengan while
+      let i = 2;
+      while (i <= 20) {
+        jawaban1 += `<p>${i} - I love Coding</p>`;
+        i++;
+      }
+
+      var jawaban2 = "LOOPING KEDUA";
+      i = 20;
+      while (i >= 2) {
+        jawaban2 += `<p>${i} - I will become web developer</p>`;
+        i--;
+      }
+
+      let hasil = jawaban1 + jawaban2;
+
+      // Driver Code, Jangan diganggu !
+      document.getElementById("jawaban1").innerHTML = hasil;
+    </script>
+  </body>
+</html>
