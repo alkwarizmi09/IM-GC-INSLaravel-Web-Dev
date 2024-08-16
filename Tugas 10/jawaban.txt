@@ -1,0 +1,91 @@
+1. Membuat Database:
+CREATE DATABASE myshop;
+
+2. Membuat Tabel di Dalam Database:
+USE myshop;
+
+CREATE TABLE users (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
+CREATE TABLE categories (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+CREATE TABLE items (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    description VARCHAR(255),
+    price INTEGER,
+    stock INTEGER,
+    category_id INTEGER,
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+);
+
+3. Memasukkan Data pada Table:
+
+-- Memasukkan data ke dalam tabel users
+INSERT INTO users (name, email, password) VALUES ('John Doe', 'john@doe.com', 'password123');
+INSERT INTO users (name, email, password) VALUES ('Jane Doe', 'jane@doe.com', 'password123');
+
+-- Memasukkan data ke dalam tabel categories
+INSERT INTO categories (name) VALUES ('gadget');
+INSERT INTO categories (name) VALUES ('cloth');
+INSERT INTO categories (name) VALUES ('men');
+INSERT INTO categories (name) VALUES ('women');
+INSERT INTO categories (name) VALUES ('branded');
+
+-- Memasukkan data ke dalam tabel items
+INSERT INTO items (name, description, price, stock, category_id) 
+VALUES ('Sumsang b50', 'hape keren dari merek sumsang', 1000000, 50, 1);
+INSERT INTO items (name, description, price, stock, category_id) 
+VALUES ('Uniklooh', 'baju keren dari brand ternama', 500000, 100, 2);
+INSERT INTO items (name, description, price, stock, category_id) 
+VALUES ('IMHO Watch', 'jam tangan anak yang jujur banget', 300000, 20, 3);
+
+3. Memasukkan Data pada Table:
+
+-- Memasukkan data ke dalam tabel users
+INSERT INTO users (name, email, password) VALUES ('John Doe', 'john@doe.com', 'password123');
+INSERT INTO users (name, email, password) VALUES ('Jane Doe', 'jane@doe.com', 'password123');
+
+-- Memasukkan data ke dalam tabel categories
+INSERT INTO categories (name) VALUES ('gadget');
+INSERT INTO categories (name) VALUES ('cloth');
+INSERT INTO categories (name) VALUES ('men');
+INSERT INTO categories (name) VALUES ('women');
+INSERT INTO categories (name) VALUES ('branded');
+
+-- Memasukkan data ke dalam tabel items
+INSERT INTO items (name, description, price, stock, category_id) 
+VALUES ('Sumsang b50', 'hape keren dari merek sumsang', 1000000, 50, 1);
+INSERT INTO items (name, description, price, stock, category_id) 
+VALUES ('Uniklooh', 'baju keren dari brand ternama', 500000, 100, 2);
+INSERT INTO items (name, description, price, stock, category_id) 
+VALUES ('IMHO Watch', 'jam tangan anak yang jujur banget', 300000, 20, 3);
+
+SOAL NO 4
+-- SELECT id, name, email FROM users;
+SELECT id, name, email FROM users;
+
+-- Mengambil data items yang memiliki harga di atas 1.000.000:
+SELECT * FROM items WHERE price > 1000000;
+
+--Mengambil data items yang memiliki name mirip dengan 'uniklo':
+SELECT * FROM items WHERE name LIKE '%uniklo%';
+
+-- Menampilkan data items join dengan kategori:
+SELECT items.name, items.description, categories.name AS category_name
+FROM items
+JOIN categories ON items.category_id = categories.id;
+
+
+SOAL NO 5 
+-- Mengubah harga item dengan nama Sumsang b50 menjadi 2.500.000:
+UPDATE items SET price = 2500000 WHERE name = 'Sumsang b50';
+
+
